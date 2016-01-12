@@ -31,4 +31,8 @@
 ## File-based project format:
 *.ipr
 *.iws
-gradle/
+
+out
+
+build/
+.gradle/
