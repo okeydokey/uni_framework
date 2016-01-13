@@ -22,13 +22,15 @@ public class AccountService {
 
     public Account createAccount(AccountDto.Create dto) {
 //        Account account = new Account();
-//        account.setUsername(dto.getUsername());
-//        account.setPassword(dto.getPassword());
-
-//        Account account = new Account();
 //        BeanUtils.copyProperties(dto, Account.class);
 
         Account account = modelMapper.map(dto, Account.class);
+
+        String username = dto.getUsername();
+        if(repository.findByUsername(username)  != null ){
+            throw new UserDuplicatedException(username);
+        }
+
         Date now = new Date();
         account.setJoined(now);
         account.setUpdated(now);

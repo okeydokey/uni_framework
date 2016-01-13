@@ -1,4 +1,4 @@
-package com.okeydokey.common.config;
+package com.okeydokey.commons.config;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;

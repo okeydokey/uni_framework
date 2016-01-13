@@ -1,4 +1,4 @@
-package com.okeydokey.common.config;
+package com.okeydokey.commons.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
