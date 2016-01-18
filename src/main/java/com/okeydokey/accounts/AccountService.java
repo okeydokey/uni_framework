@@ -4,6 +4,7 @@ package com.okeydokey.accounts;
  * @author okeydokey
  */
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.Date;
 
 @Service
 @Transactional
+@Slf4j
 public class AccountService {
     @Autowired
     private AccountRepository repository;
@@ -28,6 +30,7 @@ public class AccountService {
 
         String username = dto.getUsername();
         if(repository.findByUsername(username)  != null ){
+            log.error("user duplicated exception. {}", username);
             throw new UserDuplicatedException(username);
         }
 
